@@ -22,13 +22,7 @@
 
 Вы можете поддержать проект, поставив :star: этому репозиторию (сверху справа [главной страницы](https://github.com/ltdmurcoda/winsoft/blob/main))
 
-<a href="https://star-history.com/#ltdmurcoda/winsoft&date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ltdmurcoda/winsoft&type=date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ltdmurcoda/winsoft&type=date" />
-    <img alt="winsoft stars" src="https://api.star-history.com/svg?repos=ltdmurcoda/winsoft&type=date" />
-  </picture>
-</a>
+[![Star History Chart](https://api.star-history.com/svg?repos=ltdmurcoda/winsoft&type=date&legend=top-left)](https://www.star-history.com/#ltdmurcoda/winsoft&type=date&legend=top-left)
 
 ## Лицензирование
 
