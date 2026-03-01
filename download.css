@@ -1,78 +1,199 @@
-.version-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.version-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px var(--shadow-color);
-    background: rgba(255, 255, 255, 0.15);
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  /* Более глубокий и атмосферный градиент */
+  background: linear-gradient(to bottom, #0a1f0a, #112f11, #0a1f0a);
+  color: #d4ffd4;                /* более мягкий и приятный светло-зелёный текст */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
 
-.version-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.8rem;
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  /* Неон + свечение */
+  color: #66ff99;
+  text-shadow: 
+    0 0 10px #66ff99aa,
+    0 0 20px #66ff9988,
+    0 0 40px #33996666;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
-.version-header h3 {
-    color: white;
-    font-size: 1.4rem;
-    margin: 0;
+.container {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.release-date {
-    font-size: 0.9rem;
-    color: #aaa;
+.card {
+  background: rgba(8, 22, 8, 0.68);   /* почти чёрный с зелёным подтоном */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(80, 220, 120, 0.28);
+  border-radius: 20px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 8px 35px rgba(0,0,0,0.65);
+  transition: all 0.35s ease;
 }
 
-.version-notes {
-    color: #b0b0b0;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 50px rgba(40, 180, 90, 0.35);
+  border-color: rgba(100, 255, 140, 0.45);
 }
 
-.version-info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 1.2rem;
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #a8ffcc;               /* светлее и сочнее */
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
 }
 
-.download-btn {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: white;
+.btn {
+  display: inline-block;
+  background: #1e6b2e;          /* тёмно-зелёный базовый */
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 16px 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: none;
+  box-shadow: 0 5px 20px rgba(30, 107, 46, 0.5);
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .version-card {
-        padding: 1.2rem;
-    }
-    
-    .version-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-    
-    .version-info {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+.btn:hover {
+  transform: scale(1.07) translateY(-3px);
+  box-shadow: 0 12px 35px rgba(80, 200, 110, 0.6);
+  background: #2e8b57;          /* sea green / более яркий при наведении */
 }
 
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Скачать — более заметная пульсация */
+.btn-download {
+  background: #0f5c2b;
+  box-shadow: 0 0 25px rgba(100, 255, 140, 0.4);
+  animation: pulseGlow 3.2s infinite ease-in-out;
+}
+
+.btn-download:hover {
+  animation: none;
+  box-shadow: 0 0 45px rgba(100, 255, 140, 0.75);
+  background: #3aa856;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 25px rgba(100,255,140,0.4); }
+  50%      { transform: scale(1.05); box-shadow: 0 0 40px rgba(100,255,140,0.7); }
+}
+
+/* Модалка */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #0b2e0f;
+  border: 2px solid #4caf50cc;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.8);
+  color: #d4ffd4;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 2.4rem;
+  cursor: pointer;
+  color: #90ee90;
+  text-shadow: 0 0 8px #90ee90aa;
+}
+
+.close:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px white;
+}
+
+/* Футер */
+footer {
+  margin-top: 50px;
+  display: flex;
+  gap: 50px;
+}
+
+.social-icon {
+  width: 52px;
+  height: 52px;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+
+.social-icon:hover {
+  transform: scale(1.35) rotate(12deg);
+  filter: brightness(1.3) drop-shadow(0 0 12px #66ff99);
+}
+
+.copyright {
+  margin-top: 24px;
+  opacity: 0.75;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ────────────────────────────────────────────────
+   АДАПТАЦИЯ — mobile-first
+───────────────────────────────────────────────── */
+
+@media (min-width: 480px) {
+  h1        { font-size: 3.2rem; }
+  .card     { padding: 28px 20px; }
+  .btn      { font-size: 1.35rem; padding: 16px 60px; }
+}
+
+@media (min-width: 768px) {
+  body      { padding: 30px; }
+  h1        { font-size: 3.8rem; margin-bottom: 60px; }
+  .container{ max-width: 500px; gap: 30px; }
+  .card h2  { font-size: 1.7rem; }
+  .btn      { font-size: 1.4rem; padding: 18px 70px; }
+             }
