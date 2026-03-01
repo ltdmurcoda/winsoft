@@ -2,7 +2,7 @@
   
 # <a href="https://github.com/ltdmurcoda/">OOO «MurCoda»</a><a href="https://github.com">/</a><a href="https://github.com/ltdmurcoda/winsoft">WinSoft</a>
 
-![Static Badge](https://img.shields.io/badge/%D0%92%D0%B5%D1%80%D1%81%D0%B8%D1%8F-1.0.0-green?style=flat-square&logo=https%3A%2F%2Fltdmurcoda.github.io%2Fwinsoft%2Ficon.png&link=https%3A%2F%2Fltdmurcoda.github.io%2Fwinsoft)
+![Static Badge](https://img.shields.io/badge/%D0%92%D0%B5%D1%80%D1%81%D0%B8%D1%8F-0.0.0-green?style=flat-square&logo=https%3A%2F%2Fltdmurcoda.github.io%2Fwinsoft%2Ficon.png&link=https%3A%2F%2Fltdmurcoda.github.io%2Fwinsoft)
 
 Наш телеграм: [перейти](https://winsoftltd.t.me/)
 
